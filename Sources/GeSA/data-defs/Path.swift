@@ -8,8 +8,8 @@
 import Foundation
 
 public struct Path {
-    var storable: StorableId
-    var compartment: CompartmentIndex
+    public var storable: StorableId
+    public var compartment: CompartmentIndex
 }
 
 extension Path: Equatable {
