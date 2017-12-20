@@ -9,7 +9,7 @@ import Foundation
 import MicroGene
 
 extension MicroGene.CompartmentId {
-    static let gesa = MicroGene.CompartmentId(name: "GeSA" + locallyUniqueId())
+    static let gesa = MicroGene.CompartmentId(name: "GeSA")
     static let components = MicroGene.CompartmentId(name: "components")
     static let storage = MicroGene.CompartmentId(name: "storage")
 }
