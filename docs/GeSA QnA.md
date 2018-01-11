@@ -39,13 +39,13 @@ would be my next choice. Feel free to port if you think it’s so great :)
 
 ## Contents
 
-0. [Home](/)
-1. [What is Genetic System Architecture](/docs/GeSA%20Description.md)
-2. [When should you use it](/docs/GeSA Usage.md)
-3. [How it is made](/docs/GeSA Structure.md)
-4. [A short comparison](/docs/GeSA Comparison.md)
-5. [Sort of Q&A](/docs/GeSA QnA.md)
-6. [Current state](/docs/GeSA State.md)
-7. [Some basic and advanced patterns to consider](/docs/GeSA Patterns.md)
-8. [What you can do with GeSA (Architecture examples)](/docs/GeSA Examples.md)
+0. [Home](/README.md)
+1. [What is Genetic System Architecture](/docs/GeSA%20Introduction.md)
+2. [When should you use it](/docs/GeSA%20Usage.md)
+3. [How it is made](/docs/GeSA%20Structure.md)
+4. [A short comparison](/docs/GeSA%20Comparison.md)
+5. [Sort of Q&A](/docs/GeSA%20QnA.md)
+6. [Current state](/docs/GeSA%20State.md)
+7. [Some basic and advanced patterns to consider](/docs/GeSA%20Patterns.md)
+8. [What you can do with GeSA (Architecture examples)](/docs/GeSA%20Examples.md)
 
