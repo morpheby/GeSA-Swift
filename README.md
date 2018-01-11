@@ -22,7 +22,7 @@ system architecture designed not for biology, but for normal software developmen
 7. [Some basic and advanced patterns to consider](/docs/GeSA%20Patterns.md)
 8. [What you can do with GeSA (Architecture examples)](/docs/GeSA%20Examples.md)
 
-Or [get full PDF](/docs/GeSA Description.pdf).
+Or [get full PDF](/docs/GeSA%20Description.pdf).
 
 ## Short introduction ##
 
