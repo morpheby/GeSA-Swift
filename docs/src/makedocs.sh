@@ -1,9 +1,15 @@
 #!/bin/sh
 
+OUTPUT_DIR=".."
+REVERSE_DIR="src"
+DOC_OUTPUT="${OUTPUT_DIR}/GeSA Description.pdf"
+
 # Pandoc command to create pdf
 PDF_COMMAND="pandoc --from=markdown --to=latex --pdf-engine=xelatex --toc"
 
 GFM_COMMAND="pandoc --from=markdown --to=gfm"
+
+IMG_FIX_COMMAND="sed -Ee "'s/!\[(.*)\]\((.*)\)/![\1]('${REVERSE_DIR}'\/\2)/'
 
 # Full list of input chapters
 LIST=(
@@ -23,19 +29,9 @@ DOC_HEAD="GeSA Description.md.head"
 # Tail document for separate chapters
 DOC_TAIL="GeSA ToC.md.tail"
 
-OUTPUT_DIR=".."
-REVERSE_DIR="src"
-DOC_OUTPUT="${OUTPUT_DIR}/GeSA Description.pdf"
-
 # Create separate interlinked chapters for GitHub
 for x in "${LIST[@]}" ; do
-    cat "${x}" "${DOC_TAIL}" | $GFM_COMMAND -o "${OUTPUT_DIR}/${x}" -
-done
-
-# Link pictures
-for inname in *.graffle ; do
-    outname=${inname%.*}
-    (cd ${OUTPUT_DIR} && ln -sf "${REVERSE_DIR}/${outname}" "${outname}")
+    cat "${x}" "${DOC_TAIL}" | $IMG_FIX_COMMAND | $GFM_COMMAND -o "${OUTPUT_DIR}/${x}" -
 done
 
 # Create full documentation pdf
