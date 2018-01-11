@@ -1,7 +1,9 @@
 #!/bin/sh
 
 # Pandoc command to create pdf
-COMMAND="pandoc --from=markdown --to=latex --latex-engine=xelatex --toc"
+PDF_COMMAND="pandoc --from=markdown --to=latex --pdf-engine=xelatex --toc"
+
+GFM_COMMAND="pandoc --from=markdown --to=gfm"
 
 # Full list of input chapters
 LIST=(
@@ -22,12 +24,19 @@ DOC_HEAD="GeSA Description.md.head"
 DOC_TAIL="GeSA ToC.md.tail"
 
 OUTPUT_DIR=".."
+REVERSE_DIR="src"
 DOC_OUTPUT="${OUTPUT_DIR}/GeSA Description.pdf"
 
 # Create separate interlinked chapters for GitHub
 for x in "${LIST[@]}" ; do
-    cat "${x}" "${DOC_TAIL}" > "${OUTPUT_DIR}/${x}"
+    cat "${x}" "${DOC_TAIL}" | $GFM_COMMAND -o "${OUTPUT_DIR}/${x}" -
+done
+
+# Link pictures
+for inname in *.graffle ; do
+    outname=${inname%.*}
+    (cd ${OUTPUT_DIR} && ln -sf "${REVERSE_DIR}/${outname}" "${outname}")
 done
 
 # Create full documentation pdf
-cat "${DOC_HEAD}" "${LIST[@]}" | $COMMAND -o "${DOC_OUTPUT}" -
+cat "${DOC_HEAD}" "${LIST[@]}" | $PDF_COMMAND -o "${DOC_OUTPUT}" -
