@@ -19,6 +19,18 @@ Also, it would be awesome to have later:
   - GeSA-based OS with apps as Gene-packs
   - Hardware-based gene-packs
 
+Some already planned changes to make
+
+  - Internalize Genes and theirs execution into the system itself.
+    
+    The intention of this feature is to make Genes that are in a state
+    before executing and just after matching be internal to the storage
+    and bindable to. They should also have controls over their execution
+    embedded into them and maybe some additional functions (to be
+    determined later). This should remove the special case of
+    interceptors and would allow for greater flexibility of execution
+    contexts and execution facilities.
+
 ## Contents
 
 0.  [Home](/README.md)

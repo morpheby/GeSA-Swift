@@ -8,64 +8,87 @@ Let’s see some examples when it is really great to use GeSA.
 So you start with a backend service that has a database **A** and some business
 logic.
 
+Note that we are considering the system in both cases as without concurrency.
+Both conventional architectures and GeSA allow for relatively easy
+implementation of safe concurrent operations.
+
 ![Conventional: Step 1 — Initial](Example-Architecture-1/Step%201%20—%20Initial.png)\ 
 
-> *Seems simple enough…*
+> *"Seems simple enough…"*
 
 ![GeSA: Step 1 — Initial](Example-GeSA-Architecture-1/Step%201%20—%20Initial.png)\ 
 
-> *Seems like you never mentioned that GeSA is simple for a reason.*
+> *"Seems like you never mentioned that GeSA is simple for a reason."*
+
+------------
 
 Then you decide you need some caching for the business logic.
 
 ![Step 2 — Caching](Example-Architecture-1/Step%202%20—%20Caching.png)\ 
 
-> *Still OK…*
+> *"Still OK…"*
 
-(—insert drawing here—)
+![GeSA: Step 2 — Caching](Example-GeSA-Architecture-1/Step%202%20—%20Caching.png)\ 
+
+> *"No single change to the code we already written."™*
+
+------------
 
 Even later, you add database **B** that stores some performance statistics from
 caching.
 
 ![Step 3 — Statistics](Example-Architecture-1/Step%203%20—%20Statistics.png)\ 
 
-> *Maybe it's time to think about some refactoring.*
+> *"Maybe it's time to think about some refactoring."*
 
-(—insert drawing here—)
+![GeSA: Step 3 — Statistics](Example-GeSA-Architecture-1/Step%203%20—%20Statistics.png)\ 
+
+> *"Actually, there is a planned change to this one, but let's not make GeSA
+> harder than it is already from the start (see Current State section)."*
+
+------------
 
 And also add another value for business logic and cache it as well.
 
 ![Step 4 — Additional process](Example-Architecture-1/Step%204%20—%20Additional%20process.png)\ 
 
-> *So, you like copy-pasting, eh?*
+> *"So, you like copy-pasting, eh?"*
 
 (—insert drawing here—)
+
+------------
 
 And database **C** that makes some of the caching persistent.
 
 ![Step 5 — Persistent Cache](Example-Architecture-1/Step%205%20—%20Persistent%20Cache.png)\ 
 
-> *I'll tell you what it doesn't do… It certainly doesn't make things simpler.*
+> *"I'll tell you what it doesn't do… It certainly doesn't make things simpler."*
 
 (—insert drawing here—)
+
+------------
 
 And then you decide that caching needs to be done on a separate server (with
 database C)…
 
 ![Step 6 — Offload C](Example-Architecture-1/Step%206%20—%20Offload%20C.png)\ 
 
-> *I hope you didn't want microservices. And please, do use REST at least.*
+> *"I hope you didn't want microservices. And please, do use REST at least."*
 
 (—insert drawing here—)
+
+------------
 
 And you also decide you don’t need some of the values to be cached. And that
 seems weird to do cache profiling in business logic — so you refactor it.
 
 ![Step 7 — Uncache](Example-Architecture-1/Step%207%20—%20Uncache.png)\ 
 
-> *Doesn't seem like it became simpler after refactoring.*
+> *"Doesn't seem like it became simpler after refactoring."*
 
 (—insert drawing here—)
+
+------------
 
 Now you want to cache the other value on the second server only when the count
 of objects is ≥500. You also want it done only when the count of changed/added
@@ -76,11 +99,13 @@ the count is <100, you want to cache, but only in memory.
 
 ![Step 8 — Multicache](Example-Architecture-1/Step%208%20—%20Multicache.png)\ 
 
-> *Do you like it? Do you like it?! Do YoU lIkE iT?!!1 Actually, seems quite
-> good.*
+> *"Do you like it? Do you like it?! Do YoU lIkE iT?!!1 Actually, seems quite
+> good."*
 
 
 (—insert drawing here—)
+
+------------
 
 And that profiling? You feel it is ineffective to do that on the first server
 for the caching that is done on the second server. You want to make it async
@@ -91,6 +116,8 @@ and replicate it on both servers.
 
 
 (—insert drawing here—)
+
+------------
 
 But you also want to use only database B.
 
@@ -103,6 +130,8 @@ But you also want to use only database B.
 Let’s model a simple open-world RPG in both GeSA and conventional OOP.
 
 (—insert drawing here—)(—insert drawing here—)
+
+------------
 
 And let’s add a DLC with a motorcycle.
 

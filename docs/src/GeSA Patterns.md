@@ -28,4 +28,12 @@ process and the lock created — and unlocks the lock.
 Match with a higher priority. Add a marker to the output. Never match if the
 marker is present.
 
+### Perform non-concurrent operation (use locking mechanism)
+
+Create an empty object and put it at a pre-defined path. Match by this object
+on all Genes that work on the same process and require non-concurrent access.
+
+This effectively makes the object into a kind of 'token', allowing execution
+only to the Gene that has it bound.
+
 (more later)
