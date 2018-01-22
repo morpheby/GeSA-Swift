@@ -61,7 +61,11 @@ process](src/Example-Architecture-1/Step%204%20—%20Additional%20process.png) 
 
 > *“So, you like copy-pasting, eh?”*
 
-(—insert drawing here—)
+![GeSA: Step 4 — Additional
+process](src/Example-GeSA-Architecture-1/Step%204%20—%20Additional%20process.png) 
+
+> *“GeSA doesn’t help you with code duplication. But at least you only
+> need to duplicate functional bits.”*
 
 -----
 

@@ -54,7 +54,10 @@ And also add another value for business logic and cache it as well.
 
 > *"So, you like copy-pasting, eh?"*
 
-(—insert drawing here—)
+![GeSA: Step 4 — Additional process](Example-GeSA-Architecture-1/Step%204%20—%20Additional%20process.png)\ 
+
+> *"GeSA doesn't help you with code duplication. But at least you only need to
+  duplicate functional bits."*
 
 ------------
 
